@@ -5,6 +5,11 @@ pipeline {
         IMAGE_TAG = "latest"
     }
     stages {
+        stage('Build jar') {
+            steps {
+                bat 'mvn clean package'
+            }
+        }
         stage('Build docker image') {
             steps {
                 script {
